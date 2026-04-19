@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memproses Dokumen...</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f7f6;
+        }
+        .container { text-align: center; background: white; padding: 30px; border-radius: 12px; shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        .loader {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #3498db;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 15px auto;
+        }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        .hidden-iframe { display: none; }
+        .btn-close {
+            display: none;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: #e74c3c;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div id="status-icon" class="loader"></div>
+        <h2 id="msg">Menyiapkan Dokumen...</h2>
+        <p id="sub-msg">Mengunduh dan membuka pratinjau...</p>
+        <button onclick="window.close()" id="btnClose" class="btn-close">Tutup Tab</button>
+    </div>
+
+    <iframe id="downloadFrame" class="hidden-iframe"></iframe>
+
+    <script>
+        // Base URL tanpa parameter attachment
+        const baseURL = "https://docs.google.com/spreadsheets/d/10WvC3g3j8NdUiGj_jdYQxXPMuLayOFONj7RXY39OzG8/export?format=pdf&gid=1869689807&size=8.3x13&portrait=true&fitw=TRUE&gridlines=false&printtitle=false&sheetnames=false&pagenum=CENTER&fzr=true&r1=0&c1=0&r2=240&c2=7&top_margin=0.2&bottom_margin=0.75&left_margin=0.25&right_margin=0.25&horizontal_alignment=CENTER&vertical_alignment=TOP";
+
+        const downloadURL = baseURL + "&attachment=true";
+        const previewURL = baseURL + "&attachment=false";
+
+        window.onload = function() {
+            // PERINTAH 1: Jalankan Download di Iframe tersembunyi
+            document.getElementById('downloadFrame').src = downloadURL;
+
+            // Beri jeda sedikit agar browser memproses download terlebih dahulu
+            setTimeout(() => {
+                // PERINTAH 2: Tampilkan PDF di tab yang sama
+                window.location.href = previewURL;
+            }, 2000); 
+            
+            // Catatan: Karena window.location berpindah ke PDF, 
+            // elemen HTML di sini akan hilang diganti tampilan PDF bawaan browser.
+        };
+    </script>
+</body>
+</html>
