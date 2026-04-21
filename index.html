@@ -1,79 +1,22 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menyiapkan PDF...</title>
-    
-    <meta http-equiv="refresh" content="3; url=https://docs.google.com/spreadsheets/d/10WvC3g3j8NdUiGj_jdYQxXPMuLayOFONj7RXY39OzG8/export?format=pdf&gid=1869689807&size=8.3x13&portrait=true&fitw=TRUE&gridlines=false&printtitle=false&sheetnames=false&pagenum=CENTER&fzr=true&attachment=false&r1=0&c1=0&r2=240&c2=7&top_margin=0.2&bottom_margin=0.75&left_margin=0.25&right_margin=0.25&horizontal_alignment=CENTER&vertical_alignment=TOP">
-
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #ffffff;
-            color: #333;
-        }
-        .container { text-align: center; }
-        
-        /* Animasi Loader */
-        .loader {
-            border: 5px solid #f3f3f3;
-            border-top: 5px solid #2ecc71; /* Warna hijau biar fresh */
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            animation: spin 1s linear infinite;
-            margin: 20px auto;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        .status-text {
-            font-size: 1.1rem;
-            margin-bottom: 5px;
-        }
-        .timer {
-            font-weight: bold;
-            color: #e67e22;
-        }
-        a { color: #3498db; text-decoration: none; font-size: 0.9rem; }
-    </style>
+  <meta charset="UTF-8">
+  <title>Beranda</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+  </style>
 </head>
 <body>
-
-    <div class="container">
-        <div class="loader"></div>
-        <p class="status-text">Mohon tunggu, dokumen sedang diproses...</p>
-        <p>Anda akan dialihkan dalam <span id="countdown">3</span> detik.</p>
-        <p><a href="https://docs.google.com/spreadsheets/d/10WvC3g3j8NdUiGj_jdYQxXPMuLayOFONj7RXY39OzG8/export?format=pdf&gid=1869689807&size=8.3x13&portrait=true&fitw=TRUE&gridlines=false&printtitle=false&sheetnames=false&pagenum=CENTER&fzr=true&attachment=false&r1=0&c1=0&r2=240&c2=7&top_margin=0.2&bottom_margin=0.75&left_margin=0.25&right_margin=0.25&horizontal_alignment=CENTER&vertical_alignment=TOP">Klik di sini jika tidak otomatis beralih</a></p>
-    </div>
-
-    <script>
-        const targetURL = "https://docs.google.com/spreadsheets/d/10WvC3g3j8NdUiGj_jdYQxXPMuLayOFONj7RXY39OzG8/export?format=pdf&gid=1869689807&size=8.3x13&portrait=true&fitw=TRUE&gridlines=false&printtitle=false&sheetnames=false&pagenum=CENTER&fzr=true&attachment=false&r1=0&c1=0&r2=240&c2=7&top_margin=0.2&bottom_margin=0.75&left_margin=0.25&right_margin=0.25&horizontal_alignment=CENTER&vertical_alignment=TOP";
-        
-        // Fungsi Countdown Visual
-        let seconds = 3;
-        const countdownEl = document.getElementById('countdown');
-        
-        const timer = setInterval(() => {
-            seconds--;
-            countdownEl.textContent = seconds;
-            if (seconds <= 0) clearInterval(timer);
-        }, 1000);
-
-        // Eksekusi pengalihan setelah 3 detik
-        setTimeout(() => {
-            window.location.href = targetURL;
-        }, 3000);
-    </script>
-
+  <h1>Selamat Datang di Website Kami</h1>
+  <img src="https://images.unsplash.com/photo-1518020382113-a7e8fc38eac9?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Selamat Datang">
+  <p>Semoga Anda menikmati kunjungan Anda di sini.</p>
 </body>
 </html>
